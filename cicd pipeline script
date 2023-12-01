@@ -1,0 +1,68 @@
+@Library('mylibrary')_
+pipeline
+{
+    agent any
+    stages
+    {
+        stage('contdownload')
+        {
+            steps
+            {
+                script
+                {
+                    cicd.gitdownload("mymaven")
+                }
+            }
+        }
+        stage('contbuild')
+        {
+            steps
+            {
+                script
+                {
+                    cicd.build()
+                }
+            }
+        }
+        stage('contDeployment')
+        {
+            steps
+            {
+                script
+                {
+                    cicd.deploy("mymaven","172.31.42.129","testapp")
+                }
+            }
+        }
+        stage('contTesting')
+        {
+            steps
+            {
+                script
+                {
+                    cicd.gitdownload("functionaltesting")
+                }
+            }
+        }
+        stage('execute selenium programs')
+        {
+            steps
+            {
+                script
+                {
+                    cicd.runseleinum("functionaltesting")
+                }
+            }
+        }
+        stage('cont delivery')
+        {
+            steps
+            {
+                script
+                {
+                    cicd.("mymaven","172.31.42.129","prodapp")
+                }
+            }
+        }
+    }
+}
