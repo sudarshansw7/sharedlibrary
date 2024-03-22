@@ -10,7 +10,7 @@ pipeline
             {
                 script
                 {
-                    cicd.gitdownload("mymaven")
+                    cicd.gitdownload("project_name")
                 }
             }
         }
@@ -30,7 +30,7 @@ pipeline
             {
                 script
                 {
-                    cicd.deploy("sharedpipline","172.31.24.149","testapp")
+                    cicd.deploy("job_name","172.31.24.149","testapp")
                 }
             }
         }
@@ -50,7 +50,7 @@ pipeline
             {
                 script
                 {
-                    cicd.runselenium("sharedpipline")
+                    cicd.runselenium("job_name")
                 }
             }
         }
@@ -60,7 +60,7 @@ pipeline
             {
                 script
                 {
-                    cicd.deploy("sharedpipline","172.31.19.100","prodapp")
+                    cicd.deploy("job_name","172.31.19.100","prodapp")
                 }
             }
         }
