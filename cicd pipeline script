@@ -60,7 +60,7 @@ pipeline
             {
                 script
                 {
-                    cicd.("mymaven","172.31.42.129","prodapp")
+                    cicd.deploy("mymaven","172.31.42.129","prodapp")
                 }
             }
         }
