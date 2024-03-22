@@ -50,7 +50,7 @@ pipeline
             {
                 script
                 {
-                    cicd.runseleinum("functionaltesting")
+                    cicd.runseleinum("jobname")
                 }
             }
         }
